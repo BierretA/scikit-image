@@ -208,8 +208,9 @@ def _fetch(data_filename):
     # We may have decided to ship it in the scikit-image distribution.
     if _has_hash(resolved_path, expected_hash):
         # Nothing to be done, file is where it is expected to be
+        print('resolved path hasattr')
         return resolved_path
-
+    print('resolved path noattr')
     # Case 2:
     # The user is using a cloned version of the github repo, which
     # contains both the publicly shipped data, and test data.
@@ -240,6 +241,7 @@ def _fetch(data_filename):
     # available.
     try:
         resolved_path = image_fetcher.fetch(data_filename)
+        print("resolved path : ", resolved_path)
     except ConnectionError as err:
         # If we decide in the future to suppress the underlying 'requests'
         # error, change this to `raise ... from None`. See PEP 3134.
