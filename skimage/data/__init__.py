@@ -138,7 +138,7 @@ def create_image_fetcher():
     else:
         url = ("https://github.com/scikit-image/scikit-image/raw/"
                "v{version}/skimage/")
-
+    print(url)
     # Create a new friend to manage your sample data storage
     image_fetcher = pooch.create(
         # Pooch uses appdirs to select an appropriate directory for the cache
@@ -202,6 +202,7 @@ def _fetch(data_filename):
     """
     resolved_path = osp.join(data_dir, '..', data_filename)
     expected_hash = registry[data_filename]
+    print("resolved_path : ", resolved_path)
 
     # Case 1:
     # The file may already be in the data_dir.
@@ -216,6 +217,7 @@ def _fetch(data_filename):
     # In this case, the file would be located relative to the
     # skimage_distribution_dir
     gh_repository_path = osp.join(skimage_distribution_dir, data_filename)
+    print("gh_repository_path : ", gh_repository_path)
     if _has_hash(gh_repository_path, expected_hash):
         parent = osp.dirname(resolved_path)
         os.makedirs(parent, exist_ok=True)

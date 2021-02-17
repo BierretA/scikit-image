@@ -73,7 +73,7 @@ import sys
 
 __version__ = '0.19.0.dev0'
 
-from ._shared.version_requirements import ensure_python_version
+from _shared.version_requirements import ensure_python_version
 ensure_python_version((3, 5))
 
 # Logic for checking for improper install and importing while in the source
