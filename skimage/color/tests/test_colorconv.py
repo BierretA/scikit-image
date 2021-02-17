@@ -312,8 +312,8 @@ class TestColorconv(TestCase):
         # Test the conversion with the rest of the illuminants.
         for I in ["a", "b", "c", "d50", "d55", "d65", "d75", "e"]:
             for obs in ["2", "10", "r"]:
-                fname = "skimage/color/tests/data/lab_array_{0}_{1}.npy".format(I, obs)
-                lab_array_I_obs = np.load(fetch(fname))
+                fname = "color/tests/data/lab_array_{0}_{1}.npy".format(I, obs)
+                lab_array_I_obs = np.load(fname)
                 assert_array_almost_equal(lab_array_I_obs,
                                           xyz2lab(self.xyz_array, I, obs),
                                           decimal=2)
@@ -332,8 +332,8 @@ class TestColorconv(TestCase):
         # Test the conversion with the rest of the illuminants.
         for I in ["a", "b", "c", "d50", "d55", "d65", "d75", "e"]:
             for obs in ["2", "10", "r"]:
-                fname = "skimage/color/tests/data/lab_array_{0}_{1}.npy".format(I, obs)
-                lab_array_I_obs = np.load(fetch(fname))
+                fname = "color/tests/data/lab_array_{0}_{1}.npy".format(I, obs)
+                lab_array_I_obs = np.load(fname)
                 assert_array_almost_equal(lab2xyz(lab_array_I_obs, I, obs),
                                           self.xyz_array, decimal=3)
 
